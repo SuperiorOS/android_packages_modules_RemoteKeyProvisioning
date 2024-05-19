@@ -223,12 +223,12 @@ public class ServerInterface {
 
     private void checkDataBudget(ProvisioningAttempt metrics)
             throws RkpdException {
-        if (!Settings.hasErrDataBudget(mContext, null /* curTime */)) {
+        //if (!Settings.hasErrDataBudget(mContext, null /* curTime */)) {
             metrics.setStatus(ProvisioningAttempt.Status.OUT_OF_ERROR_BUDGET);
             int bytesConsumed = Settings.getErrDataBudgetConsumed(mContext);
             throw makeNetworkError("Out of data budget due to repeated errors. Consumed "
                     + bytesConsumed + " bytes.", metrics);
-        }
+        //}
     }
 
     private RkpdException makeNetworkError(String message,
